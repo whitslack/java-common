@@ -31,7 +31,7 @@ public final class BinarySearch {
 	 * <code>{@link #find(Object[], int, int, ToIntFunction) find}(array, 0, array.length, sought::{@link Comparable#compareTo(Object) compareTo})</code>.
 	 */
 	public static final <T extends Comparable<? super T>> int find(T[] array, T sought) {
-		return find(array, 0, array.length, sought::compareTo);
+		return BinarySearch.<T>find(array, 0, array.length, sought::compareTo);
 	}
 
 	/**
@@ -89,7 +89,7 @@ public final class BinarySearch {
 	 * <code>{@link #lowerBound(Object[], int, int, ToIntFunction) lowerBound}(array, 0, array.length, sought::{@link Comparable#compareTo(Object) compareTo})</code>.
 	 */
 	public static final <T extends Comparable<? super T>> int lowerBound(T[] array, T sought) {
-		return lowerBound(array, 0, array.length, sought::compareTo);
+		return BinarySearch.<T>lowerBound(array, 0, array.length, sought::compareTo);
 	}
 
 	/**
@@ -157,7 +157,7 @@ public final class BinarySearch {
 	 * <code>{@link #upperBound(Object[], int, int, ToIntFunction) upperBound}(array, 0, array.length, sought::{@link Comparable#compareTo(Object) compareTo})</code>.
 	 */
 	public static final <T extends Comparable<? super T>> int upperBound(T[] array, T sought) {
-		return upperBound(array, 0, array.length, sought::compareTo);
+		return BinarySearch.<T>upperBound(array, 0, array.length, sought::compareTo);
 	}
 
 	/**
@@ -225,7 +225,7 @@ public final class BinarySearch {
 	 * <code>{@link #equalRange(Object[], int, int, ToIntFunction) equalRange}(array, 0, array.length, sought::{@link Comparable#compareTo(Object) compareTo})</code>.
 	 */
 	public static final <T extends Comparable<? super T>> int[] equalRange(T[] array, T sought) {
-		return equalRange(array, 0, array.length, sought::compareTo);
+		return BinarySearch.<T>equalRange(array, 0, array.length, sought::compareTo);
 	}
 
 	/**
