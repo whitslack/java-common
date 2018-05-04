@@ -1130,26 +1130,24 @@ public final class ArgUtil {
 	}
 
 	/**
-	 * Throws an {@link IllegalArgumentException} if {@code arg} {@linkplain Float#isNaN(float) is NaN} or
-	 * {@linkplain Float#isInfinite(float) is an infinity}.
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is not {@linkplain Float#isFinite(float) finite}.
 	 * 
 	 * @return {@code arg}
 	 */
 	public static float checkFinite(float arg, String argName) {
-		if (Float.isNaN(arg) || Float.isInfinite(arg)) {
+		if (!Float.isFinite(arg)) {
 			throw new IllegalArgumentException(argName + " must be finite; was: " + arg);
 		}
 		return arg;
 	}
 
 	/**
-	 * Throws an {@link IllegalArgumentException} if {@code arg} {@linkplain Double#isNaN(double) is NaN} or
-	 * {@linkplain Double#isInfinite(double) is an infinity}.
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is not {@linkplain Double#isFinite(double) finite}.
 	 * 
 	 * @return {@code arg}
 	 */
 	public static double checkFinite(double arg, String argName) {
-		if (Double.isNaN(arg) || Double.isInfinite(arg)) {
+		if (!Double.isFinite(arg)) {
 			throw new IllegalArgumentException(argName + " must be finite; was: " + arg);
 		}
 		return arg;
