@@ -33,8 +33,10 @@ public final class ArgUtil {
 
 	/**
 	 * Throws a {@link NullPointerException} if {@code arg} or any element of it is {@code null}.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkNoneNull(Object[] arg, String argName) throws NullPointerException {
+	public static <T> T[] checkNoneNull(T[] arg, String argName) throws NullPointerException {
 		if (arg == null) {
 			throw new NullPointerException(argName);
 		}
@@ -43,14 +45,17 @@ public final class ArgUtil {
 				throw new NullPointerException(argName + '[' + i + ']');
 			}
 		}
+		return arg;
 	}
 
 	/**
 	 * Throws a {@link NullPointerException} if {@code arg} or any element of the specified slice of {@code arg} is
 	 * {@code null}. Throws an {@link IndexOutOfBoundsException} if {@code offset} and {@code length} specify an array
 	 * slice outside the bounds of {@code arg}.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkNoneNull(Object[] arg, int offset, int length, String argName) throws NullPointerException {
+	public static <T> T[] checkNoneNull(T[] arg, int offset, int length, String argName) throws NullPointerException {
 		if (arg == null) {
 			throw new NullPointerException(argName);
 		}
@@ -62,12 +67,15 @@ public final class ArgUtil {
 			}
 			++offset;
 		}
+		return arg;
 	}
 
 	/**
 	 * Throws a {@link NullPointerException} if {@code arg} or any element of it is {@code null}.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkNoneNull(Iterable<?> arg, String argName) throws NullPointerException {
+	public static <T> Iterable<T> checkNoneNull(Iterable<T> arg, String argName) throws NullPointerException {
 		if (arg == null) {
 			throw new NullPointerException(argName);
 		}
@@ -78,457 +86,1157 @@ public final class ArgUtil {
 			}
 			++i;
 		}
+		return arg;
 	}
 
 	/**
 	 * Throws a {@link NullPointerException} if {@code arg} is {@code null} or an {@link IllegalArgumentException} if
 	 * {@code arg} is empty.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkNotEmpty(boolean[] arg, String argName) {
+	public static boolean[] checkNotEmpty(boolean[] arg, String argName) {
 		if (arg == null) {
 			throw new NullPointerException(argName);
 		}
 		if (arg.length == 0) {
 			throw new IllegalArgumentException(argName + " must not be empty");
 		}
+		return arg;
 	}
 
 	/**
 	 * Throws a {@link NullPointerException} if {@code arg} is {@code null} or an {@link IllegalArgumentException} if
 	 * {@code arg} is empty.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkNotEmpty(byte[] arg, String argName) {
+	public static byte[] checkNotEmpty(byte[] arg, String argName) {
 		if (arg == null) {
 			throw new NullPointerException(argName);
 		}
 		if (arg.length == 0) {
 			throw new IllegalArgumentException(argName + " must not be empty");
 		}
+		return arg;
 	}
 
 	/**
 	 * Throws a {@link NullPointerException} if {@code arg} is {@code null} or an {@link IllegalArgumentException} if
 	 * {@code arg} is empty.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkNotEmpty(short[] arg, String argName) {
+	public static short[] checkNotEmpty(short[] arg, String argName) {
 		if (arg == null) {
 			throw new NullPointerException(argName);
 		}
 		if (arg.length == 0) {
 			throw new IllegalArgumentException(argName + " must not be empty");
 		}
+		return arg;
 	}
 
 	/**
 	 * Throws a {@link NullPointerException} if {@code arg} is {@code null} or an {@link IllegalArgumentException} if
 	 * {@code arg} is empty.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkNotEmpty(int[] arg, String argName) {
+	public static int[] checkNotEmpty(int[] arg, String argName) {
 		if (arg == null) {
 			throw new NullPointerException(argName);
 		}
 		if (arg.length == 0) {
 			throw new IllegalArgumentException(argName + " must not be empty");
 		}
+		return arg;
 	}
 
 	/**
 	 * Throws a {@link NullPointerException} if {@code arg} is {@code null} or an {@link IllegalArgumentException} if
 	 * {@code arg} is empty.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkNotEmpty(long[] arg, String argName) {
+	public static long[] checkNotEmpty(long[] arg, String argName) {
 		if (arg == null) {
 			throw new NullPointerException(argName);
 		}
 		if (arg.length == 0) {
 			throw new IllegalArgumentException(argName + " must not be empty");
 		}
+		return arg;
 	}
 
 	/**
 	 * Throws a {@link NullPointerException} if {@code arg} is {@code null} or an {@link IllegalArgumentException} if
 	 * {@code arg} is empty.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkNotEmpty(float[] arg, String argName) {
+	public static float[] checkNotEmpty(float[] arg, String argName) {
 		if (arg == null) {
 			throw new NullPointerException(argName);
 		}
 		if (arg.length == 0) {
 			throw new IllegalArgumentException(argName + " must not be empty");
 		}
+		return arg;
 	}
 
 	/**
 	 * Throws a {@link NullPointerException} if {@code arg} is {@code null} or an {@link IllegalArgumentException} if
 	 * {@code arg} is empty.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkNotEmpty(double[] arg, String argName) {
+	public static double[] checkNotEmpty(double[] arg, String argName) {
 		if (arg == null) {
 			throw new NullPointerException(argName);
 		}
 		if (arg.length == 0) {
 			throw new IllegalArgumentException(argName + " must not be empty");
 		}
+		return arg;
 	}
 
 	/**
 	 * Throws a {@link NullPointerException} if {@code arg} is {@code null} or an {@link IllegalArgumentException} if
 	 * {@code arg} is empty.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkNotEmpty(char[] arg, String argName) {
+	public static char[] checkNotEmpty(char[] arg, String argName) {
 		if (arg == null) {
 			throw new NullPointerException(argName);
 		}
 		if (arg.length == 0) {
 			throw new IllegalArgumentException(argName + " must not be empty");
 		}
+		return arg;
 	}
 
 	/**
 	 * Throws a {@link NullPointerException} if {@code arg} is {@code null} or an {@link IllegalArgumentException} if
 	 * {@code arg} is empty.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkNotEmpty(Object[] arg, String argName) {
+	public static <T> T[] checkNotEmpty(T[] arg, String argName) {
 		if (arg == null) {
 			throw new NullPointerException(argName);
 		}
 		if (arg.length == 0) {
 			throw new IllegalArgumentException(argName + " must not be empty");
 		}
+		return arg;
 	}
 
 	/**
 	 * Throws a {@link NullPointerException} if {@code arg} is {@code null} or an {@link IllegalArgumentException} if
 	 * {@code arg} {@linkplain Collection#isEmpty() is empty}.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkNotEmpty(Collection<?> arg, String argName) {
+	public static <T> Collection<T> checkNotEmpty(Collection<T> arg, String argName) {
 		if (arg == null) {
 			throw new NullPointerException(argName);
 		}
 		if (arg.isEmpty()) {
 			throw new IllegalArgumentException(argName + " must not be empty");
 		}
+		return arg;
 	}
 
 	/**
 	 * Throws a {@link NullPointerException} if {@code arg} is {@code null} or an {@link IllegalArgumentException} if
 	 * {@code arg} {@linkplain Map#isEmpty() is empty}.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkNotEmpty(Map<?, ?> arg, String argName) {
+	public static <K, V> Map<K, V> checkNotEmpty(Map<K, V> arg, String argName) {
 		if (arg == null) {
 			throw new NullPointerException(argName);
 		}
 		if (arg.isEmpty()) {
 			throw new IllegalArgumentException(argName + " must not be empty");
 		}
+		return arg;
 	}
 
 	/**
-	 * Throws an {@link IllegalArgumentException} if {@code arg} is non-negative.
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is not negative.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkNegative(int arg, String argName) throws IllegalArgumentException {
+	public static byte checkNegative(byte arg, String argName) throws IllegalArgumentException {
 		if (!(arg < 0)) {
 			throw new IllegalArgumentException(argName + " must be negative; was: " + arg);
 		}
+		return arg;
 	}
 
 	/**
-	 * Throws an {@link IllegalArgumentException} if {@code arg} is non-negative.
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is not negative.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkNegative(long arg, String argName) throws IllegalArgumentException {
+	public static short checkNegative(short arg, String argName) throws IllegalArgumentException {
 		if (!(arg < 0)) {
 			throw new IllegalArgumentException(argName + " must be negative; was: " + arg);
 		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is not negative.
+	 * 
+	 * @return {@code arg}
+	 */
+	public static int checkNegative(int arg, String argName) throws IllegalArgumentException {
+		if (!(arg < 0)) {
+			throw new IllegalArgumentException(argName + " must be negative; was: " + arg);
+		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is not negative.
+	 * 
+	 * @return {@code arg}
+	 */
+	public static long checkNegative(long arg, String argName) throws IllegalArgumentException {
+		if (!(arg < 0)) {
+			throw new IllegalArgumentException(argName + " must be negative; was: " + arg);
+		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is not negative.
+	 * 
+	 * @return {@code arg}
+	 */
+	public static float checkNegative(float arg, String argName) throws IllegalArgumentException {
+		if (!(arg < 0)) {
+			throw new IllegalArgumentException(argName + " must be negative; was: " + arg);
+		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is not negative.
+	 * 
+	 * @return {@code arg}
+	 */
+	public static double checkNegative(double arg, String argName) throws IllegalArgumentException {
+		if (!(arg < 0)) {
+			throw new IllegalArgumentException(argName + " must be negative; was: " + arg);
+		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException}.
+	 * 
+	 * @deprecated A {@code char} can never be negative.
+	 */
+	@Deprecated
+	public static char checkNegative(char arg, String argName) throws IllegalArgumentException {
+		throw new IllegalArgumentException(StringUtil.escapeJavaChar(new StringBuilder(argName).append(" must be negative; was: ").append('\''), arg).append('\'').toString());
 	}
 
 	/**
 	 * Throws an {@link IllegalArgumentException} if {@code arg} is negative.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkNonNegative(int arg, String argName) throws IllegalArgumentException {
-		if (arg < 0) {
+	public static byte checkNonNegative(byte arg, String argName) throws IllegalArgumentException {
+		if (!(arg >= 0)) {
 			throw new IllegalArgumentException(argName + " must be non-negative; was: " + arg);
 		}
+		return arg;
 	}
 
 	/**
 	 * Throws an {@link IllegalArgumentException} if {@code arg} is negative.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkNonNegative(long arg, String argName) throws IllegalArgumentException {
-		if (arg < 0) {
+	public static short checkNonNegative(short arg, String argName) throws IllegalArgumentException {
+		if (!(arg >= 0)) {
 			throw new IllegalArgumentException(argName + " must be non-negative; was: " + arg);
 		}
+		return arg;
 	}
 
 	/**
-	 * Throws an {@link IllegalArgumentException} if {@code arg} is non-positive.
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is negative.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkPositive(int arg, String argName) throws IllegalArgumentException {
-		if (!(arg > 0)) {
-			throw new IllegalArgumentException(argName + " must be positive; was: " + arg);
+	public static int checkNonNegative(int arg, String argName) throws IllegalArgumentException {
+		if (!(arg >= 0)) {
+			throw new IllegalArgumentException(argName + " must be non-negative; was: " + arg);
 		}
+		return arg;
 	}
 
 	/**
-	 * Throws an {@link IllegalArgumentException} if {@code arg} is non-positive.
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is negative.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkPositive(long arg, String argName) throws IllegalArgumentException {
+	public static long checkNonNegative(long arg, String argName) throws IllegalArgumentException {
+		if (!(arg >= 0)) {
+			throw new IllegalArgumentException(argName + " must be non-negative; was: " + arg);
+		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is negative or not a number.
+	 * 
+	 * @return {@code arg}
+	 */
+	public static float checkNonNegative(float arg, String argName) throws IllegalArgumentException {
+		if (!(arg >= 0)) {
+			throw new IllegalArgumentException(argName + " must be non-negative; was: " + arg);
+		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is negative or not a number.
+	 * 
+	 * @return {@code arg}
+	 */
+	public static double checkNonNegative(double arg, String argName) throws IllegalArgumentException {
+		if (!(arg >= 0)) {
+			throw new IllegalArgumentException(argName + " must be non-negative; was: " + arg);
+		}
+		return arg;
+	}
+
+	/**
+	 * Returns {@code arg}.
+	 * 
+	 * @deprecated A {@code char} is always zero or positive.
+	 */
+	@Deprecated
+	public static char checkNonNegative(char arg, String argName) throws IllegalArgumentException {
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is not positive.
+	 * 
+	 * @return {@code arg}
+	 */
+	public static byte checkPositive(byte arg, String argName) throws IllegalArgumentException {
 		if (!(arg > 0)) {
 			throw new IllegalArgumentException(argName + " must be positive; was: " + arg);
 		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is not positive.
+	 * 
+	 * @return {@code arg}
+	 */
+	public static short checkPositive(short arg, String argName) throws IllegalArgumentException {
+		if (!(arg > 0)) {
+			throw new IllegalArgumentException(argName + " must be positive; was: " + arg);
+		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is not positive.
+	 * 
+	 * @return {@code arg}
+	 */
+	public static int checkPositive(int arg, String argName) throws IllegalArgumentException {
+		if (!(arg > 0)) {
+			throw new IllegalArgumentException(argName + " must be positive; was: " + arg);
+		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is not positive.
+	 * 
+	 * @return {@code arg}
+	 */
+	public static long checkPositive(long arg, String argName) throws IllegalArgumentException {
+		if (!(arg > 0)) {
+			throw new IllegalArgumentException(argName + " must be positive; was: " + arg);
+		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is not positive.
+	 * 
+	 * @return {@code arg}
+	 */
+	public static float checkPositive(float arg, String argName) throws IllegalArgumentException {
+		if (!(arg > 0)) {
+			throw new IllegalArgumentException(argName + " must be positive; was: " + arg);
+		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is not positive.
+	 * 
+	 * @return {@code arg}
+	 */
+	public static double checkPositive(double arg, String argName) throws IllegalArgumentException {
+		if (!(arg > 0)) {
+			throw new IllegalArgumentException(argName + " must be positive; was: " + arg);
+		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is not positive.
+	 * 
+	 * @return {@code arg}
+	 * @deprecated Call {@link #checkNonPositive(int, String)} instead.
+	 */
+	@Deprecated
+	public static char checkPositive(char arg, String argName) throws IllegalArgumentException {
+		if (!(arg > 0)) {
+			throw new IllegalArgumentException(StringUtil.escapeJavaChar(new StringBuilder(argName).append(" must be positive; was: ").append('\''), arg).append('\'').toString());
+		}
+		return arg;
 	}
 
 	/**
 	 * Throws an {@link IllegalArgumentException} if {@code arg} is positive.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkNonPositive(int arg, String argName) throws IllegalArgumentException {
-		if (arg > 0) {
+	public static byte checkNonPositive(byte arg, String argName) throws IllegalArgumentException {
+		if (!(arg <= 0)) {
 			throw new IllegalArgumentException(argName + " must be non-positive; was: " + arg);
 		}
+		return arg;
 	}
 
 	/**
 	 * Throws an {@link IllegalArgumentException} if {@code arg} is positive.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkNonPositive(long arg, String argName) throws IllegalArgumentException {
-		if (arg > 0) {
+	public static short checkNonPositive(short arg, String argName) throws IllegalArgumentException {
+		if (!(arg <= 0)) {
 			throw new IllegalArgumentException(argName + " must be non-positive; was: " + arg);
 		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is positive.
+	 * 
+	 * @return {@code arg}
+	 */
+	public static int checkNonPositive(int arg, String argName) throws IllegalArgumentException {
+		if (!(arg <= 0)) {
+			throw new IllegalArgumentException(argName + " must be non-positive; was: " + arg);
+		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is positive.
+	 * 
+	 * @return {@code arg}
+	 */
+	public static long checkNonPositive(long arg, String argName) throws IllegalArgumentException {
+		if (!(arg <= 0)) {
+			throw new IllegalArgumentException(argName + " must be non-positive; was: " + arg);
+		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is positive or not a number.
+	 * 
+	 * @return {@code arg}
+	 */
+	public static float checkNonPositive(float arg, String argName) throws IllegalArgumentException {
+		if (!(arg <= 0)) {
+			throw new IllegalArgumentException(argName + " must be non-positive; was: " + arg);
+		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is positive or not a number.
+	 * 
+	 * @return {@code arg}
+	 */
+	public static double checkNonPositive(double arg, String argName) throws IllegalArgumentException {
+		if (!(arg <= 0)) {
+			throw new IllegalArgumentException(argName + " must be non-positive; was: " + arg);
+		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is positive.
+	 * 
+	 * @return {@code arg}
+	 * @deprecated Call {@link #checkZero(char, String)} instead.
+	 */
+	@Deprecated
+	public static char checkNonPositive(char arg, String argName) throws IllegalArgumentException {
+		if (!(arg <= 0)) {
+			throw new IllegalArgumentException(StringUtil.escapeJavaChar(new StringBuilder(argName).append(" must be non-positive; was: ").append('\''), arg).append('\'').toString());
+		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is not zero.
+	 * 
+	 * @return {@code arg}
+	 */
+	public static byte checkZero(byte arg, String argName) throws IllegalArgumentException {
+		if (arg != 0) {
+			throw new IllegalArgumentException(argName + " must be zero; was: " + arg);
+		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is not zero.
+	 * 
+	 * @return {@code arg}
+	 */
+	public static short checkZero(short arg, String argName) throws IllegalArgumentException {
+		if (arg != 0) {
+			throw new IllegalArgumentException(argName + " must be zero; was: " + arg);
+		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is not zero.
+	 * 
+	 * @return {@code arg}
+	 */
+	public static int checkZero(int arg, String argName) throws IllegalArgumentException {
+		if (arg != 0) {
+			throw new IllegalArgumentException(argName + " must be zero; was: " + arg);
+		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is not zero.
+	 * 
+	 * @return {@code arg}
+	 */
+	public static long checkZero(long arg, String argName) throws IllegalArgumentException {
+		if (arg != 0) {
+			throw new IllegalArgumentException(argName + " must be zero; was: " + arg);
+		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is not zero.
+	 * 
+	 * @return {@code arg}
+	 */
+	public static float checkZero(float arg, String argName) throws IllegalArgumentException {
+		if (arg != 0) {
+			throw new IllegalArgumentException(argName + " must be zero; was: " + arg);
+		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is not zero.
+	 * 
+	 * @return {@code arg}
+	 */
+	public static double checkZero(double arg, String argName) throws IllegalArgumentException {
+		if (arg != 0) {
+			throw new IllegalArgumentException(argName + " must be zero; was: " + arg);
+		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is not zero.
+	 * 
+	 * @return {@code arg}
+	 */
+	public static char checkZero(char arg, String argName) throws IllegalArgumentException {
+		if (arg != 0) {
+			throw new IllegalArgumentException(StringUtil.escapeJavaChar(new StringBuilder(argName).append(" must be zero; was: ").append('\''), arg).append('\'').toString());
+		}
+		return arg;
 	}
 
 	/**
 	 * Throws an {@link IllegalArgumentException} if {@code arg} is zero.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkNonZero(int arg, String argName) throws IllegalArgumentException {
+	public static byte checkNonZero(byte arg, String argName) throws IllegalArgumentException {
 		if (arg == 0) {
 			throw new IllegalArgumentException(argName + " must be non-zero");
 		}
+		return arg;
 	}
 
 	/**
 	 * Throws an {@link IllegalArgumentException} if {@code arg} is zero.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkNonZero(long arg, String argName) throws IllegalArgumentException {
+	public static short checkNonZero(short arg, String argName) throws IllegalArgumentException {
 		if (arg == 0) {
 			throw new IllegalArgumentException(argName + " must be non-zero");
 		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is zero.
+	 * 
+	 * @return {@code arg}
+	 */
+	public static int checkNonZero(int arg, String argName) throws IllegalArgumentException {
+		if (arg == 0) {
+			throw new IllegalArgumentException(argName + " must be non-zero");
+		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is zero.
+	 * 
+	 * @return {@code arg}
+	 */
+	public static long checkNonZero(long arg, String argName) throws IllegalArgumentException {
+		if (arg == 0) {
+			throw new IllegalArgumentException(argName + " must be non-zero");
+		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is zero or not a number.
+	 * 
+	 * @return {@code arg}
+	 */
+	public static float checkNonZero(float arg, String argName) throws IllegalArgumentException {
+		if (arg == 0 || Float.isNaN(arg)) {
+			throw new IllegalArgumentException(argName + " must be non-zero");
+		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is zero or not a number.
+	 * 
+	 * @return {@code arg}
+	 */
+	public static double checkNonZero(double arg, String argName) throws IllegalArgumentException {
+		if (arg == 0 || Double.isNaN(arg)) {
+			throw new IllegalArgumentException(argName + " must be non-zero");
+		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is zero.
+	 * 
+	 * @return {@code arg}
+	 */
+	public static char checkNonZero(char arg, String argName) throws IllegalArgumentException {
+		if (arg == 0) {
+			throw new IllegalArgumentException(argName + " must be non-zero");
+		}
+		return arg;
 	}
 
 	/**
 	 * Throws an {@link IllegalArgumentException} if {@code arg} is not less than {@code bound}.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkLessThan(int arg, int bound, String argName) {
+	public static byte checkLessThan(byte arg, byte bound, String argName) {
 		if (!(arg < bound)) {
 			throw new IllegalArgumentException(argName + " must be less than " + bound + "; was: " + arg);
 		}
+		return arg;
 	}
 
 	/**
 	 * Throws an {@link IllegalArgumentException} if {@code arg} is not less than {@code bound}.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkLessThan(long arg, long bound, String argName) {
+	public static short checkLessThan(short arg, short bound, String argName) {
 		if (!(arg < bound)) {
 			throw new IllegalArgumentException(argName + " must be less than " + bound + "; was: " + arg);
 		}
+		return arg;
 	}
 
 	/**
 	 * Throws an {@link IllegalArgumentException} if {@code arg} is not less than {@code bound}.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkLessThan(float arg, float bound, String argName) {
+	public static int checkLessThan(int arg, int bound, String argName) {
 		if (!(arg < bound)) {
 			throw new IllegalArgumentException(argName + " must be less than " + bound + "; was: " + arg);
 		}
+		return arg;
 	}
 
 	/**
 	 * Throws an {@link IllegalArgumentException} if {@code arg} is not less than {@code bound}.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkLessThan(double arg, double bound, String argName) {
+	public static long checkLessThan(long arg, long bound, String argName) {
 		if (!(arg < bound)) {
 			throw new IllegalArgumentException(argName + " must be less than " + bound + "; was: " + arg);
 		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is not less than {@code bound}.
+	 * 
+	 * @return {@code arg}
+	 */
+	public static float checkLessThan(float arg, float bound, String argName) {
+		if (!(arg < bound)) {
+			throw new IllegalArgumentException(argName + " must be less than " + bound + "; was: " + arg);
+		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is not less than {@code bound}.
+	 * 
+	 * @return {@code arg}
+	 */
+	public static double checkLessThan(double arg, double bound, String argName) {
+		if (!(arg < bound)) {
+			throw new IllegalArgumentException(argName + " must be less than " + bound + "; was: " + arg);
+		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is not less than {@code bound}.
+	 * 
+	 * @return {@code arg}
+	 */
+	public static char checkLessThan(char arg, char bound, String argName) {
+		if (!(arg < bound)) {
+			throw new IllegalArgumentException(StringUtil.escapeJavaChar(StringUtil.escapeJavaChar(new StringBuilder(argName).append(" must be less than ").append('\''), bound).append('\'').append("; was: ").append('\''), arg).append('\'').toString());
+		}
+		return arg;
 	}
 
 	/**
 	 * Throws an {@link IllegalArgumentException} if {@code arg} is not greater than or equal to {@code min}.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkAtLeast(int arg, int min, String argName) {
+	public static byte checkAtLeast(byte arg, byte min, String argName) {
 		if (!(arg >= min)) {
 			throw new IllegalArgumentException(argName + " must be at least " + min + "; was: " + arg);
 		}
+		return arg;
 	}
 
 	/**
 	 * Throws an {@link IllegalArgumentException} if {@code arg} is not greater than or equal to {@code min}.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkAtLeast(long arg, long min, String argName) {
+	public static short checkAtLeast(short arg, short min, String argName) {
 		if (!(arg >= min)) {
 			throw new IllegalArgumentException(argName + " must be at least " + min + "; was: " + arg);
 		}
+		return arg;
 	}
 
 	/**
 	 * Throws an {@link IllegalArgumentException} if {@code arg} is not greater than or equal to {@code min}.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkAtLeast(float arg, float min, String argName) {
+	public static int checkAtLeast(int arg, int min, String argName) {
 		if (!(arg >= min)) {
 			throw new IllegalArgumentException(argName + " must be at least " + min + "; was: " + arg);
 		}
+		return arg;
 	}
 
 	/**
 	 * Throws an {@link IllegalArgumentException} if {@code arg} is not greater than or equal to {@code min}.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkAtLeast(double arg, double min, String argName) {
+	public static long checkAtLeast(long arg, long min, String argName) {
 		if (!(arg >= min)) {
 			throw new IllegalArgumentException(argName + " must be at least " + min + "; was: " + arg);
 		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is not greater than or equal to {@code min}.
+	 * 
+	 * @return {@code arg}
+	 */
+	public static float checkAtLeast(float arg, float min, String argName) {
+		if (!(arg >= min)) {
+			throw new IllegalArgumentException(argName + " must be at least " + min + "; was: " + arg);
+		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is not greater than or equal to {@code min}.
+	 * 
+	 * @return {@code arg}
+	 */
+	public static double checkAtLeast(double arg, double min, String argName) {
+		if (!(arg >= min)) {
+			throw new IllegalArgumentException(argName + " must be at least " + min + "; was: " + arg);
+		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is not greater than or equal to {@code min}.
+	 * 
+	 * @return {@code arg}
+	 */
+	public static char checkAtLeast(char arg, char min, String argName) {
+		if (!(arg >= min)) {
+			throw new IllegalArgumentException(StringUtil.escapeJavaChar(StringUtil.escapeJavaChar(new StringBuilder(argName).append(" must be at least ").append('\''), min).append('\'').append("; was: ").append('\''), arg).append('\'').toString());
+		}
+		return arg;
 	}
 
 	/**
 	 * Throws an {@link IllegalArgumentException} if {@code arg} is not greater than {@code bound}.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkGreaterThan(int arg, int bound, String argName) {
+	public static byte checkGreaterThan(byte arg, byte bound, String argName) {
 		if (!(arg > bound)) {
 			throw new IllegalArgumentException(argName + " must be greater than " + bound + "; was: " + arg);
 		}
+		return arg;
 	}
 
 	/**
 	 * Throws an {@link IllegalArgumentException} if {@code arg} is not greater than {@code bound}.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkGreaterThan(long arg, long bound, String argName) {
+	public static short checkGreaterThan(short arg, short bound, String argName) {
 		if (!(arg > bound)) {
 			throw new IllegalArgumentException(argName + " must be greater than " + bound + "; was: " + arg);
 		}
+		return arg;
 	}
 
 	/**
 	 * Throws an {@link IllegalArgumentException} if {@code arg} is not greater than {@code bound}.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkGreaterThan(float arg, float bound, String argName) {
+	public static int checkGreaterThan(int arg, int bound, String argName) {
 		if (!(arg > bound)) {
 			throw new IllegalArgumentException(argName + " must be greater than " + bound + "; was: " + arg);
 		}
+		return arg;
 	}
 
 	/**
 	 * Throws an {@link IllegalArgumentException} if {@code arg} is not greater than {@code bound}.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkGreaterThan(double arg, double bound, String argName) {
+	public static long checkGreaterThan(long arg, long bound, String argName) {
 		if (!(arg > bound)) {
 			throw new IllegalArgumentException(argName + " must be greater than " + bound + "; was: " + arg);
 		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is not greater than {@code bound}.
+	 * 
+	 * @return {@code arg}
+	 */
+	public static float checkGreaterThan(float arg, float bound, String argName) {
+		if (!(arg > bound)) {
+			throw new IllegalArgumentException(argName + " must be greater than " + bound + "; was: " + arg);
+		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is not greater than {@code bound}.
+	 * 
+	 * @return {@code arg}
+	 */
+	public static double checkGreaterThan(double arg, double bound, String argName) {
+		if (!(arg > bound)) {
+			throw new IllegalArgumentException(argName + " must be greater than " + bound + "; was: " + arg);
+		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is not greater than {@code bound}.
+	 * 
+	 * @return {@code arg}
+	 */
+	public static char checkGreaterThan(char arg, char bound, String argName) {
+		if (!(arg > bound)) {
+			throw new IllegalArgumentException(StringUtil.escapeJavaChar(StringUtil.escapeJavaChar(new StringBuilder(argName).append(" must be greater than ").append('\''), bound).append('\'').append("; was: ").append('\''), arg).append('\'').toString());
+		}
+		return arg;
 	}
 
 	/**
 	 * Throws an {@link IllegalArgumentException} if {@code arg} is not less than or equal to {@code max}.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkAtMost(int arg, int max, String argName) {
+	public static byte checkAtMost(byte arg, byte max, String argName) {
 		if (!(arg <= max)) {
 			throw new IllegalArgumentException(argName + " must not exceed " + max + "; was: " + arg);
 		}
+		return arg;
 	}
 
 	/**
 	 * Throws an {@link IllegalArgumentException} if {@code arg} is not less than or equal to {@code max}.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkAtMost(long arg, long max, String argName) {
+	public static short checkAtMost(short arg, short max, String argName) {
 		if (!(arg <= max)) {
 			throw new IllegalArgumentException(argName + " must not exceed " + max + "; was: " + arg);
 		}
+		return arg;
 	}
 
 	/**
 	 * Throws an {@link IllegalArgumentException} if {@code arg} is not less than or equal to {@code max}.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkAtMost(float arg, float max, String argName) {
+	public static int checkAtMost(int arg, int max, String argName) {
 		if (!(arg <= max)) {
 			throw new IllegalArgumentException(argName + " must not exceed " + max + "; was: " + arg);
 		}
+		return arg;
 	}
 
 	/**
 	 * Throws an {@link IllegalArgumentException} if {@code arg} is not less than or equal to {@code max}.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkAtMost(double arg, double max, String argName) {
+	public static long checkAtMost(long arg, long max, String argName) {
 		if (!(arg <= max)) {
 			throw new IllegalArgumentException(argName + " must not exceed " + max + "; was: " + arg);
 		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is not less than or equal to {@code max}.
+	 * 
+	 * @return {@code arg}
+	 */
+	public static float checkAtMost(float arg, float max, String argName) {
+		if (!(arg <= max)) {
+			throw new IllegalArgumentException(argName + " must not exceed " + max + "; was: " + arg);
+		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is not less than or equal to {@code max}.
+	 * 
+	 * @return {@code arg}
+	 */
+	public static double checkAtMost(double arg, double max, String argName) {
+		if (!(arg <= max)) {
+			throw new IllegalArgumentException(argName + " must not exceed " + max + "; was: " + arg);
+		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is not less than or equal to {@code max}.
+	 * 
+	 * @return {@code arg}
+	 */
+	public static char checkAtMost(char arg, char max, String argName) {
+		if (!(arg <= max)) {
+			throw new IllegalArgumentException(StringUtil.escapeJavaChar(StringUtil.escapeJavaChar(new StringBuilder(argName).append(" must not exceed ").append('\''), max).append('\'').append("; was: ").append('\''), arg).append('\'').toString());
+		}
+		return arg;
 	}
 
 	/**
 	 * Throws an {@link IllegalArgumentException} if {@code arg} is {@linkplain Float#isNaN(float) is NaN}.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkNotNaN(float arg, String argName) {
+	public static float checkNotNaN(float arg, String argName) {
 		if (Float.isNaN(arg)) {
 			throw new IllegalArgumentException(argName + " must not be NaN");
 		}
+		return arg;
 	}
 
 	/**
 	 * Throws an {@link IllegalArgumentException} if {@code arg} is {@linkplain Double#isNaN(double) is NaN}.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkNotNaN(double arg, String argName) {
+	public static double checkNotNaN(double arg, String argName) {
 		if (Double.isNaN(arg)) {
 			throw new IllegalArgumentException(argName + " must not be NaN");
 		}
+		return arg;
 	}
 
 	/**
 	 * Throws an {@link IllegalArgumentException} if {@code arg} {@linkplain Float#isNaN(float) is NaN} or
 	 * {@linkplain Float#isInfinite(float) is an infinity}.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkFinite(float arg, String argName) {
+	public static float checkFinite(float arg, String argName) {
 		if (Float.isNaN(arg) || Float.isInfinite(arg)) {
 			throw new IllegalArgumentException(argName + " must be finite; was: " + arg);
 		}
+		return arg;
 	}
 
 	/**
-	 * Throws an {@link IllegalArgumentException} if {@code arg} is {@linkplain Double#isNaN(double) NaN} or an
-	 * {@linkplain Double#isInfinite(double) infinity}.
+	 * Throws an {@link IllegalArgumentException} if {@code arg} {@linkplain Double#isNaN(double) is NaN} or
+	 * {@linkplain Double#isInfinite(double) is an infinity}.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkFinite(double arg, String argName) {
+	public static double checkFinite(double arg, String argName) {
 		if (Double.isNaN(arg) || Double.isInfinite(arg)) {
 			throw new IllegalArgumentException(argName + " must be finite; was: " + arg);
 		}
+		return arg;
 	}
 
 	/**
 	 * Throws an {@link IllegalArgumentException} if {@code arg} is not between {@code min} and {@code max}, inclusive.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkInRange(int arg, int min, int max, String argName) {
+	public static byte checkInRange(byte arg, byte min, byte max, String argName) {
 		if (!(arg >= min && arg <= max)) {
 			throw new IllegalArgumentException(argName + " must be in range [" + min + ',' + max + "]; was: " + arg);
 		}
+		return arg;
 	}
 
 	/**
 	 * Throws an {@link IllegalArgumentException} if {@code arg} is not between {@code min} and {@code max}, inclusive.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkInRange(long arg, long min, long max, String argName) {
+	public static short checkInRange(short arg, short min, short max, String argName) {
 		if (!(arg >= min && arg <= max)) {
 			throw new IllegalArgumentException(argName + " must be in range [" + min + ',' + max + "]; was: " + arg);
 		}
+		return arg;
 	}
 
 	/**
 	 * Throws an {@link IllegalArgumentException} if {@code arg} is not between {@code min} and {@code max}, inclusive.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkInRange(float arg, float min, float max, String argName) {
+	public static int checkInRange(int arg, int min, int max, String argName) {
 		if (!(arg >= min && arg <= max)) {
 			throw new IllegalArgumentException(argName + " must be in range [" + min + ',' + max + "]; was: " + arg);
 		}
+		return arg;
 	}
 
 	/**
 	 * Throws an {@link IllegalArgumentException} if {@code arg} is not between {@code min} and {@code max}, inclusive.
+	 * 
+	 * @return {@code arg}
 	 */
-	public static void checkInRange(double arg, double min, double max, String argName) {
+	public static long checkInRange(long arg, long min, long max, String argName) {
 		if (!(arg >= min && arg <= max)) {
 			throw new IllegalArgumentException(argName + " must be in range [" + min + ',' + max + "]; was: " + arg);
 		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is not between {@code min} and {@code max}, inclusive.
+	 * 
+	 * @return {@code arg}
+	 */
+	public static float checkInRange(float arg, float min, float max, String argName) {
+		if (!(arg >= min && arg <= max)) {
+			throw new IllegalArgumentException(argName + " must be in range [" + min + ',' + max + "]; was: " + arg);
+		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is not between {@code min} and {@code max}, inclusive.
+	 * 
+	 * @return {@code arg}
+	 */
+	public static double checkInRange(double arg, double min, double max, String argName) {
+		if (!(arg >= min && arg <= max)) {
+			throw new IllegalArgumentException(argName + " must be in range [" + min + ',' + max + "]; was: " + arg);
+		}
+		return arg;
+	}
+
+	/**
+	 * Throws an {@link IllegalArgumentException} if {@code arg} is not between {@code min} and {@code max}, inclusive.
+	 * 
+	 * @return {@code arg}
+	 */
+	public static char checkInRange(char arg, char min, char max, String argName) {
+		if (!(arg >= min && arg <= max)) {
+			throw new IllegalArgumentException(StringUtil.escapeJavaChar(StringUtil.escapeJavaChar(StringUtil.escapeJavaChar(new StringBuilder(argName).append(" must be in range [").append('\''), min).append('\'').append(',').append('\''), max).append('\'').append("]; was: ").append('\''), arg).append('\'').toString());
+		}
+		return arg;
 	}
 
 	/**
