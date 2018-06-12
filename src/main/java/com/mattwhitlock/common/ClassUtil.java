@@ -723,7 +723,7 @@ public final class ClassUtil {
 		if (n == args.length && ((arg = args[n - 1]) == null || isAssignable(paramTypes[n - 1], arg.getClass()))) {
 			return args;
 		}
-		Object[] converted = new Object[n--];
+		Object[] converted = Arrays.copyOf(args, n--);
 		Class<?>[] argTypes = getTypes(args);
 		int k = argTypes.length - n;
 		Class<?> componentType = paramTypes[n].getComponentType();
