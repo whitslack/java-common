@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
  */
 public final class StringUtil {
 
-	private static final Pattern integerPattern = Pattern.compile("-?\\d+");
+	private static final Pattern integerPattern = Pattern.compile("-?\\d+"), unsignedIntegerPattern = Pattern.compile("\\d+");
 	private static final Pattern floatPattern = Pattern.compile("\\s*[-+]?(?:NaN|Infinity|(?:\\d+\\.\\d*|\\.?\\d+)(?:e[-+]?\\d+)?[fd]?|0x(?:\\p{XDigit}+\\.\\p{XDigit}*|\\.?\\p{XDigit}+)(?:p[-+]?\\d+)?[fd]?)\\s*", Pattern.CASE_INSENSITIVE);
 
 	/**
@@ -47,6 +47,13 @@ public final class StringUtil {
 	 */
 	public static boolean isInteger(String str) {
 		return integerPattern.matcher(str).matches();
+	}
+
+	/**
+	 * Returns whether the given string consists solely of one or more decimal digits.
+	 */
+	public static boolean isUnsignedInteger(String str) {
+		return unsignedIntegerPattern.matcher(str).matches();
 	}
 
 	/**
